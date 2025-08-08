@@ -1,75 +1,120 @@
-Project Overview
-ShopEase is a modern e-commerce platform backend built with the MERN stack, designed to empower small businesses and local sellers with a scalable, secure, and user-friendly online shopping experience. The backend is responsible for managing users, authentication, product listings, and will later handle orders and payments.
+🛒 ShopEase Backend
 
-What Has Been Implemented So Far
-1. User Model with Role Support
-Created a comprehensive /models/User.js schema with support for three user roles: buyer, seller, and admin.
+ShopEase is a modern e-commerce platform backend built using the MERN stack, designed to empower small businesses and local sellers with a scalable, secure, and user-friendly online shopping experience.
+This backend handles user management, authentication, and product listings, and is built to scale for features like orders and payments.
+✅ What Has Been Implemented So Far
+1. 👥 User Model with Role Support
 
-Included secure password hashing with bcrypt middleware.
+    Defined a detailed user schema in /models/User.js.
 
-Defined sub-schemas for addresses and bank details, with seller verification fields.
+    Supports three roles: buyer, seller, and admin.
 
-2. User Authentication
-Built registration and login routes/controllers in /routes/auth.js and /controllers/authController.js.
+    Includes:
 
-Separate registration endpoints for buyers and sellers with role distinction.
+        Secure password hashing using bcrypt middleware.
 
-Implemented JWT token generation, securing routes and enabling user authentication.
+        Sub-schemas for addresses and bank details.
 
-Added middleware for JWT authentication and role-based access control (/middleware/auth.js and /middleware/roleAuth.js).
+        Fields for seller verification.
 
-3. Profile Endpoint
-Created /api/auth/me endpoint to get currently logged-in user information securely.
+2. 🔐 User Authentication
 
-4. Product Management
-Defined /models/Product.js with fields including name, description, price, category, images, inventory, and seller reference.
+    Created registration and login routes/controllers:
 
-Developed product routes in /routes/products.js with endpoints for:
+        /routes/auth.js
 
-Seller-only creation, update, and deletion of products.
+        /controllers/authController.js
 
-Buyers and sellers can list and view products.
+    Separate registration endpoints for buyers and sellers with role distinction.
 
-Controllers for product CRUD with proper ownership and role validation.
+    Implemented JWT-based authentication:
 
-5. Backend Setup and Connection with MongoDB Atlas
-Successfully configured a MongoDB Atlas cluster for cloud-hosted database access.
+        Token generation during login.
 
-Used environment variables (.env) for secure connection URI and JWT secret management.
+        Middleware for JWT verification: /middleware/auth.js
 
-Implemented connection logic with Mongoose with the modern serverApi options.
+        Middleware for role-based access control: /middleware/roleAuth.js
 
-Applied .gitignore rules to exclude node_modules and sensitive files from source control.
+3. 👤 Profile Endpoint
 
-6. GitHub Repository and Version Control
-Set up a GitHub repository with clean commits excluding unnecessary files.
+    Created /api/auth/me to securely retrieve the currently logged-in user's information.
 
-Used GitHub Desktop for version control, pushing only essential backend files.
+4. 📦 Product Management
 
-How to Run Locally
-Clone the GitHub repository to your local machine.
+    Product schema defined in /models/Product.js with fields:
 
-Run npm install in the backend directory to install dependencies.
+        name, description, price, category, images, inventory, and seller reference.
 
-Create a .env file with the following variables (sample):
+    Product routes in /routes/products.js:
 
-text
+        Sellers can: create, update, and delete products.
+
+        Buyers & Sellers can: view and list products.
+
+    Controllers ensure:
+
+        Proper role validation.
+
+        Ownership checks for updates/deletion.
+
+5. ⚙️ Backend Setup & MongoDB Integration
+
+    Connected to MongoDB Atlas using Mongoose.
+
+    Configured environment variables in .env:
+
+        Database URI
+
+        JWT secret
+
+        Port
+
+    Connection uses modern serverApi options.
+
+    Used .gitignore to exclude sensitive data and node_modules.
+
+6. 💻 GitHub & Version Control
+
+    Clean and structured GitHub repo.
+
+    Used GitHub Desktop for commits and pushes.
+
+    Excluded unnecessary files to keep the repo clean.
+
+🚀 How to Run Locally
+1. Clone the Repository
+
+git clone https://github.com/your-username/shopease-backend.git
+cd shopease-backend
+
+2. Install Dependencies
+
+npm install
+
+3. Create a .env File
+
+Add the following variables:
+
 MONGODB_URI=your_mongodb_atlas_connection_string
 JWT_SECRET=your_jwt_secret_key
 PORT=5000
-Start the backend server with:
 
-text
+4. Start the Development Server
+
 npm run dev
-Use Postman or any API client to test the endpoints:
 
-Register/login users.
+🧪 Testing the API
 
-Create/list products.
+Use Postman, Thunder Client, or any API testing tool to interact with the endpoints:
 
-Test protected routes with JWT tokens.
+    🔐 Register or login as buyer/seller.
 
+    👤 Access user profile at /api/auth/me.
 
+    📦 Create, update, or list products.
+
+    🔒 Test protected routes using the JWT token in the Authorization header.
 ScreenShots:
 
 <img width="875" height="884" alt="image" src="https://github.com/user-attachments/assets/579d1941-4ab0-46f1-817e-9ab61f938847" />
+
